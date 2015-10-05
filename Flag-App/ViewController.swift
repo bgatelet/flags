@@ -15,6 +15,7 @@ struct Level {
 struct Countries {
     static var allColumns = [String: [String]]()
     static var allRows = [String: [String: String]]()
+    static var orderedKeys = [String]()
 }
 
 class ViewController: UIViewController {
@@ -32,6 +33,7 @@ class ViewController: UIViewController {
             
             for row in 0 ..< csv.rows.count {
                 let abb = csv.rows[row]["abbreviation"]!
+                Countries.orderedKeys.append(abb)
                 Countries.allRows[abb] = csv.rows[row]
             }
         }

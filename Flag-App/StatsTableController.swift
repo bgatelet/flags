@@ -15,8 +15,8 @@ class StatsTableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for abb in Countries.allRows.keys {
-            items.append(Countries.allRows[abb]!["abbreviation"]!)
+        for abbreviation in Countries.orderedKeys {
+            items.append(abbreviation)
         }
     }
 
