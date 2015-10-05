@@ -8,11 +8,37 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+struct Level {
+    static var difficulty = Difficulty.Medium
+}
 
+struct Countries {
+    static var allColumns = [String: [String]]()
+    static var allRows = [String: [String: String]]()
+}
+
+class ViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let path = NSBundle.mainBundle().pathForResource("countries", ofType: "csv")!
+        
+        let error: NSErrorPointer = nil
+        if let csv = try! CSV(contentsOfFile: path, error: error) {
+            for header in csv.headers {
+                Countries.allColumns[header] = csv.columns[header]!
+            }
+            
+            for row in 0 ..< csv.rows.count {
+                let abb = csv.rows[row]["abbreviation"]!
+                Countries.allRows[abb] = csv.rows[row]
+            }
+        }
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        performSegueWithIdentifier("Main", sender: self)
     }
 
     override func didReceiveMemoryWarning() {
