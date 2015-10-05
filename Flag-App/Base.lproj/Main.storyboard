@@ -103,14 +103,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nui-rc-E7c">
-                                <rect key="frame" x="119" y="247" width="363" height="194"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkm-bT-KOQ">
                                 <rect key="frame" x="245" y="178" width="111" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="2Ig-ob-O4h"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nui-rc-E7c">
+                                <rect key="frame" x="119" y="247" width="363" height="194"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="363" id="7B3-Cj-iDj"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euM-RY-NBo">
+                                <rect key="frame" x="263" y="503" width="75" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -121,12 +130,25 @@
                             <constraint firstItem="nui-rc-E7c" firstAttribute="centerX" secondItem="xkm-bT-KOQ" secondAttribute="centerX" id="4VI-9p-uzS"/>
                             <constraint firstItem="xkm-bT-KOQ" firstAttribute="top" secondItem="wKe-CJ-ikd" secondAttribute="bottom" constant="114" id="Nbe-0o-m4P"/>
                             <constraint firstItem="xkm-bT-KOQ" firstAttribute="centerX" secondItem="RFg-iV-FXa" secondAttribute="centerX" id="SWb-YC-34J"/>
+                            <constraint firstItem="euM-RY-NBo" firstAttribute="top" secondItem="nui-rc-E7c" secondAttribute="bottom" constant="62" id="Tgy-Qs-3Oe"/>
                             <constraint firstItem="hLn-QN-Ch9" firstAttribute="top" secondItem="nui-rc-E7c" secondAttribute="bottom" constant="159" id="WhL-Ir-USx"/>
+                            <constraint firstItem="hLn-QN-Ch9" firstAttribute="top" secondItem="euM-RY-NBo" secondAttribute="bottom" constant="76" id="cPk-t8-Dd1"/>
+                            <constraint firstItem="nui-rc-E7c" firstAttribute="centerY" secondItem="RFg-iV-FXa" secondAttribute="centerY" constant="44" id="lsO-Nb-V3A"/>
                             <constraint firstItem="nui-rc-E7c" firstAttribute="top" secondItem="xkm-bT-KOQ" secondAttribute="bottom" constant="48" id="p55-Qm-Pxq"/>
+                            <constraint firstItem="euM-RY-NBo" firstAttribute="centerX" secondItem="nui-rc-E7c" secondAttribute="centerX" id="qd9-l1-hPn"/>
+                            <constraint firstItem="nui-rc-E7c" firstAttribute="centerX" secondItem="RFg-iV-FXa" secondAttribute="centerX" id="wbF-VE-lxU"/>
                             <constraint firstItem="nui-rc-E7c" firstAttribute="leading" secondItem="RFg-iV-FXa" secondAttribute="leadingMargin" constant="99" id="yFo-U2-Ue4"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="yFo-U2-Ue4"/>
+                                <exclude reference="WhL-Ir-USx"/>
+                                <exclude reference="cPk-t8-Dd1"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="countryContinent" destination="euM-RY-NBo" id="0I3-sk-PFz"/>
                         <outlet property="countryFlag" destination="nui-rc-E7c" id="fk5-IZ-HjY"/>
                         <outlet property="countryName" destination="xkm-bT-KOQ" id="lee-t8-H6v"/>
                     </connections>
@@ -528,6 +550,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="MjL-IL-c2Z"/>
-        <segue reference="MeB-hV-6o1"/>
+        <segue reference="KEO-20-xh5"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -16,6 +16,12 @@ struct Countries {
     static var allColumns = [String: [String]]()
     static var allRows = [String: [String: String]]()
     static var orderedKeys = [String]()
+    static var euKeys = [String]()
+    static var asKeys = [String]()
+    static var afKeys = [String]()
+    static var ocKeys = [String]()
+    static var naKeys = [String]()
+    static var saKeys = [String]()
 }
 
 class ViewController: UIViewController {
@@ -35,6 +41,25 @@ class ViewController: UIViewController {
                 let abb = csv.rows[row]["abbreviation"]!
                 Countries.orderedKeys.append(abb)
                 Countries.allRows[abb] = csv.rows[row]
+                
+                let continent = csv.rows[row]["continent"]!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                
+                switch continent {
+                case "EU":
+                    Countries.euKeys.append(abb)
+                case "AS":
+                    Countries.asKeys.append(abb)
+                case "AF":
+                    Countries.afKeys.append(abb)
+                case "OC":
+                    Countries.ocKeys.append(abb)
+                case "NA":
+                    Countries.naKeys.append(abb)
+                case "SA":
+                    Countries.saKeys.append(abb)
+                default:
+                    break
+                }
             }
         }
     }
