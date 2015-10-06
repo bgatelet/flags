@@ -75,11 +75,13 @@ class GameController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if indexPath.item == solution["countryIndex"] as! Int {
             let ac = UIAlertController(title: "Correct Answer", message: nil, preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "Replay", style: .Default, handler: newRound))
+            ac.addAction(UIAlertAction(title: "Next Round", style: .Default, handler: newRound))
             presentViewController(ac, animated: true, completion: nil)
         } else {
-            let ac = UIAlertController(title: "Wrong Answer", message: nil, preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            let flagIndex = (solution["countryIndex"] as! Int) + 1
+            
+            let ac = UIAlertController(title: "Wrong Answer", message: "The correct answer was flag number \(flagIndex).", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "Next Round", style: .Default, handler: newRound))
             presentViewController(ac, animated: true, completion: nil)
         }
     }
