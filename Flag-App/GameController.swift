@@ -11,6 +11,7 @@ import UIKit
 
 class GameController: UICollectionViewController {
     
+    var gameType = [String]()
     var currentGame = [String]()
     var solution = [String: AnyObject]()
     
@@ -22,7 +23,7 @@ class GameController: UICollectionViewController {
     
     func newRound(action: UIAlertAction!) {
         currentGame = [String]()
-        let countries = Countries.allColumns["abbreviation"]!
+        let countries = gameType
         var randomFlags = GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(countries)
         
         for i in 0 ..< Level.difficulty.rawValue {

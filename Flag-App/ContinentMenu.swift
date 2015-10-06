@@ -9,7 +9,39 @@
 import UIKit
 
 class ContinentMenu: UIViewController {
+    
+    var gameKeys = [String]()
+    
+    @IBAction func saButton(sender: AnyObject) {
+        gameKeys = Countries.saKeys
+        performSegueWithIdentifier("ContinentPlay", sender: self)
+    }
+    
+    @IBAction func euButton(sender: AnyObject) {
+        gameKeys = Countries.euKeys
+        performSegueWithIdentifier("ContinentPlay", sender: self)
+    }
+    
+    @IBAction func afButton(sender: AnyObject) {
+        gameKeys = Countries.afKeys
+        performSegueWithIdentifier("ContinentPlay", sender: self)
+    }
+    
+    @IBAction func asButton(sender: AnyObject) {
+        gameKeys = Countries.asKeys
+        performSegueWithIdentifier("ContinentPlay", sender: self)
+    }
 
+    @IBAction func ocButton(sender: AnyObject) {
+        gameKeys = Countries.ocKeys
+        performSegueWithIdentifier("ContinentPlay", sender: self)
+    }
+    
+    @IBAction func naButton(sender: AnyObject) {
+        gameKeys = Countries.naKeys
+        performSegueWithIdentifier("ContinentPlay", sender: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,14 +54,11 @@ class ContinentMenu: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ContinentPlay" {
+            let gameController = segue.destinationViewController as! GameController
+            gameController.gameType = gameKeys
+        }
     }
-    */
 
 }
