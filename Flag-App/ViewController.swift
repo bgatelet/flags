@@ -8,6 +8,13 @@
 
 import UIKit
 
+enum Difficulty: Int {
+    case Easy = 2
+    case Medium = 4
+    case Hard = 6
+    case Extreme = 8
+}
+
 struct Level {
     static var difficulty = Difficulty.Medium
 }

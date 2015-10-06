@@ -10,6 +10,40 @@ import UIKit
 
 class MainMenu: UIViewController {
 
+    @IBAction func statsButton(sender: UIButton) {
+        let ac = UIAlertController(title: "Difficulty", message: nil, preferredStyle: .ActionSheet)
+        
+        let easy = UIAlertAction(title: "easy", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            Level.difficulty = Difficulty.Easy
+        })
+        
+        let medium = UIAlertAction(title: "medium", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            Level.difficulty = Difficulty.Medium
+        })
+        
+        let hard = UIAlertAction(title: "hard", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            Level.difficulty = Difficulty.Hard
+        })
+        
+        let extreme = UIAlertAction(title: "extreme", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            Level.difficulty = Difficulty.Extreme
+        })
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        
+        ac.addAction(easy)
+        ac.addAction(medium)
+        ac.addAction(hard)
+        ac.addAction(extreme)
+        ac.addAction(cancel)
+        
+        self.presentViewController(ac, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

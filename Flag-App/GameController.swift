@@ -79,8 +79,15 @@ class GameController: UICollectionViewController {
             presentViewController(ac, animated: true, completion: nil)
         } else {
             let flagIndex = (solution["countryIndex"] as! Int) + 1
+            var choice: String
             
-            let ac = UIAlertController(title: "Wrong Answer", message: "The correct answer was flag number \(flagIndex).", preferredStyle: .Alert)
+            if currentGame[indexPath.item].containsString("US") {
+                choice = Countries.usStates[currentGame[indexPath.item]]!
+            } else {
+                choice = Countries.allRows[currentGame[indexPath.item]]!["name"]!
+            }
+            
+            let ac = UIAlertController(title: "Wrong Answer", message: "You picked the flag of \(choice). The correct answer was flag number \(flagIndex).", preferredStyle: .Alert)
             ac.addAction(UIAlertAction(title: "Next Round", style: .Default, handler: newRound))
             presentViewController(ac, animated: true, completion: nil)
         }
