@@ -34,7 +34,12 @@ class GameController: UICollectionViewController {
         solution["countryAbb"] = currentGame[solutionFlag]
         solution["countryIndex"] = solutionFlag
         
-        self.title = Countries.allRows[currentGame[solutionFlag]]!["name"]
+        if currentGame[solutionFlag].containsString("US") {
+            self.title = Countries.usStates[currentGame[solutionFlag]]
+        } else {
+            self.title = Countries.allRows[currentGame[solutionFlag]]!["name"]
+        }
+        
         self.collectionView!.reloadData()
     }
 

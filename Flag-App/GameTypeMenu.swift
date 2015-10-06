@@ -25,11 +25,10 @@ class GameTypeMenu: UIViewController {
         if segue.identifier == "WorldPlay" {
             let gameController = segue.destinationViewController as! GameController
             gameController.gameType = Countries.allColumns["abbreviation"]!
-        } 
-//            else if segue.identifier == "USAPlay" {
-//            let gameController = segue.destinationViewController as! GameController
-//            gameController.gameType = Countries.usaKeys
-//        }
+        } else if segue.identifier == "USAPlay" {
+            let gameController = segue.destinationViewController as! GameController
+            gameController.gameType = Countries.usKeys
+        }
     }
 
 }

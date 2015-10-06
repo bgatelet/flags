@@ -22,6 +22,9 @@ struct Countries {
     static var ocKeys = [String]()
     static var naKeys = [String]()
     static var saKeys = [String]()
+    
+    static var usStates = [String: String]()
+    static var usKeys = [String]()
 }
 
 class ViewController: UIViewController {
@@ -60,6 +63,18 @@ class ViewController: UIViewController {
                 default:
                     break
                 }
+            }
+        }
+        
+        let pathUS = NSBundle.mainBundle().pathForResource("USstates", ofType: "csv")!
+        
+        let errorUS: NSErrorPointer = nil
+        if let csvUS = try! CSV(contentsOfFile: pathUS, error: errorUS) {
+            
+            for row in 0 ..< csvUS.rows.count {
+                let abb = csvUS.rows[row]["abbreviation"]!
+                Countries.usKeys.append(abb)
+                Countries.usStates[abb] = csvUS.rows[row]["name"]!
             }
         }
     }

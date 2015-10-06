@@ -77,7 +77,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="eAB-Cm-f4e" kind="show" identifier="Country" id="Il7-dc-XeS"/>
+                                    <segue destination="eAB-Cm-f4e" kind="show" identifier="FlagView" id="Il7-dc-XeS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -568,6 +568,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="MjL-IL-c2Z"/>
-        <segue reference="KEO-20-xh5"/>
+        <segue reference="MeB-hV-6o1"/>
     </inferredMetricsTieBreakers>
 </document>

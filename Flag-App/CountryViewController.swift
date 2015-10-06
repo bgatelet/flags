@@ -20,30 +20,34 @@ class CountryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        countryName.text = Countries.allRows[name!]!["full name"]
-        countryFlag.image = flag
-        
-        let continent = Countries.allRows[name!]!["continent"]!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-        
-        switch continent {
-        case "EU":
-            countryContinent.text = "Europe"
-        case "AS":
-            countryContinent.text = "Asia"
-        case "AF":
-            countryContinent.text = "Africa"
-        case "OC":
-            countryContinent.text = "Ocenia"
-        case "NA":
+        if name!.containsString("US") {
+            countryName.text = Countries.usStates[name!]
             countryContinent.text = "North America"
-        case "SA":
-            countryContinent.text = "South America"
-        case "AN":
-            countryContinent.text = "Antarctica"
-        default:
-            break
-
+        } else {
+            countryName.text = Countries.allRows[name!]!["full name"]
+            
+            let continent = Countries.allRows[name!]!["continent"]!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            
+            switch continent {
+            case "EU":
+                countryContinent.text = "Europe"
+            case "AS":
+                countryContinent.text = "Asia"
+            case "AF":
+                countryContinent.text = "Africa"
+            case "OC":
+                countryContinent.text = "Ocenia"
+            case "NA":
+                countryContinent.text = "North America"
+            case "SA":
+                countryContinent.text = "South America"
+            case "AN":
+                countryContinent.text = "Antarctica"
+            default:
+                break
+            }
         }
+        countryFlag.image = flag
     }
 
     override func didReceiveMemoryWarning() {
