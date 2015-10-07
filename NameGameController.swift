@@ -43,11 +43,18 @@ class NameGameController: UIViewController {
     var currentGame = [String]()
     var currentGameNames = [String]()
     var solution = [String: AnyObject]()
+    var played = [String]()
+    var rounds = 0
+    var correct = 0
+    var count = 0
+    var message: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Guess the Flag"
+        
+        count = gameType.count
         
         newRound()
         setButtons()
@@ -70,9 +77,14 @@ class NameGameController: UIViewController {
         currentGame = [String]()
         currentGameNames = [String]()
         
-        let countries = gameType
-//        let countries = Countries.allColumns["abbreviation"]!
-        var randomFlags = GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(countries)
+        // The last ones not seen get recycled and have a higher chance of being seen next time.
+        if gameType.count < Level.difficulty.rawValue {
+            gameType += played
+            played = [String]()
+        }
+        
+        let randomFlagsTemp = GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(gameType)
+        var randomFlags = GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(randomFlagsTemp)
         
         for i in 0 ..< Level.difficulty.rawValue {
             currentGame.append(randomFlags[i] as! String)
@@ -100,6 +112,8 @@ class NameGameController: UIViewController {
         let flag = UIImage(contentsOfFile: path)
         flagImage.image = flag
         solution["flagImage"] = flag
+        
+        ++rounds
     }
     
     func checkAnswer(sender: UIButton) {
@@ -113,7 +127,24 @@ class NameGameController: UIViewController {
     func correctGuess() {
         self.title = solution["name"] as? String
         
-        let ac = UIAlertController(title: "Correct Answer", message: nil, preferredStyle: .Alert)
+        let abbreviation = solution["countryAbb"] as! String
+        if Ratios.seen[abbreviation] != nil {
+            Ratios.seen[abbreviation]! += 1
+            Ratios.correct[abbreviation]! += 1
+        } else {
+            Ratios.seen[abbreviation] = 1
+            Ratios.correct[abbreviation] = 1
+        }
+        
+        Ratios.save()
+        
+        played.append(solution["countryAbb"] as! String)
+        gameType = Array(Set(gameType).subtract(Set(played)))
+        
+        ++correct
+        setMessage()
+        
+        let ac = UIAlertController(title: "Correct Answer", message: message, preferredStyle: .Alert)
         ac.addAction(UIAlertAction(title: "Next Round", style: .Default, handler: nextRound))
         presentViewController(ac, animated: true, completion: nil)
     }
@@ -121,9 +152,20 @@ class NameGameController: UIViewController {
     func wrongGuess() {
         self.title = solution["name"] as? String
         
+        let abbreviation = solution["countryAbb"] as! String
+        if Ratios.seen[abbreviation] != nil {
+            Ratios.seen[abbreviation]! += 1
+        } else {
+            Ratios.seen[abbreviation] = 1
+            Ratios.correct[abbreviation] = 0
+        }
+        
+        Ratios.save()
+        setMessage()
+        
         let answer = (solution["name"] as! String)
         
-        let ac = UIAlertController(title: "Wrong Answer", message: "The correct answer was \(answer).", preferredStyle: .Alert)
+        let ac = UIAlertController(title: "Wrong Answer", message: "The correct answer was \(answer).\n\(message)", preferredStyle: .Alert)
         ac.addAction(UIAlertAction(title: "Next Round", style: .Default, handler: nextRound))
         presentViewController(ac, animated: true, completion: nil)
     }
@@ -133,7 +175,11 @@ class NameGameController: UIViewController {
         setButtons()
         self.title = ""
     }
-
+    
+    func setMessage() {
+        message = "Correct: \(round(Double(correct) / Double(rounds) * 100.0 * 4.0) / 4.0)%"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

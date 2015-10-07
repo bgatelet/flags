@@ -14,17 +14,30 @@ class GameController: UICollectionViewController {
     var gameType = [String]()
     var currentGame = [String]()
     var solution = [String: AnyObject]()
+    var played = [String]()
+    var rounds = 0
+    var correct = 0
+    var count = 0
+    var message: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        count = gameType.count
         
         newRound(nil)
     }
     
     func newRound(action: UIAlertAction!) {
+        // The last ones not seen get recycled and have a higher chance of being seen next time.
+        if gameType.count < Level.difficulty.rawValue {
+            gameType += played
+            played = [String]()
+        }
+        
         currentGame = [String]()
-        let countries = gameType
-        var randomFlags = GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(countries)
+        let randomFlagsTemp = GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(gameType)
+        var randomFlags = GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(randomFlagsTemp)
         
         for i in 0 ..< Level.difficulty.rawValue {
             currentGame.append(randomFlags[i] as! String)
@@ -40,7 +53,12 @@ class GameController: UICollectionViewController {
             self.title = Countries.allRows[currentGame[solutionFlag]]!["name"]
         }
         
+        ++rounds
         self.collectionView!.reloadData()
+    }
+    
+    func setMessage() {
+        message = "Correct: \(round(Double(correct) / Double(rounds) * 100.0) * 4.0 / 4.0)%"
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,10 +92,38 @@ class GameController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if indexPath.item == solution["countryIndex"] as! Int {
-            let ac = UIAlertController(title: "Correct Answer", message: nil, preferredStyle: .Alert)
+            let abbreviation = solution["countryAbb"] as! String
+            if Ratios.seen[abbreviation] != nil {
+                Ratios.seen[abbreviation]! += 1
+                Ratios.correct[abbreviation]! += 1
+            } else {
+                Ratios.seen[abbreviation] = 1
+                Ratios.correct[abbreviation] = 1
+            }
+            
+            Ratios.save()
+            
+            played.append(solution["countryAbb"] as! String)
+            gameType = Array(Set(gameType).subtract(Set(played)))
+            
+            ++correct
+            setMessage()
+            
+            let ac = UIAlertController(title: "Correct Answer", message: message, preferredStyle: .Alert)
             ac.addAction(UIAlertAction(title: "Next Round", style: .Default, handler: newRound))
             presentViewController(ac, animated: true, completion: nil)
         } else {
+            let abbreviation = solution["countryAbb"] as! String
+            if Ratios.seen[abbreviation] != nil {
+                Ratios.seen[abbreviation]! += 1
+            } else {
+                Ratios.seen[abbreviation] = 1
+                Ratios.correct[abbreviation] = 0
+            }
+            
+            Ratios.save()
+            setMessage()
+            
             let flagIndex = (solution["countryIndex"] as! Int) + 1
             var choice: String
             
@@ -87,7 +133,7 @@ class GameController: UICollectionViewController {
                 choice = Countries.allRows[currentGame[indexPath.item]]!["name"]!
             }
             
-            let ac = UIAlertController(title: "Wrong Answer", message: "You picked the flag of \(choice). The correct answer was flag number \(flagIndex).", preferredStyle: .Alert)
+            let ac = UIAlertController(title: "Wrong Answer", message: "You picked the flag of \(choice). The correct answer was flag number \(flagIndex).\n\(message)", preferredStyle: .Alert)
             ac.addAction(UIAlertAction(title: "Next Round", style: .Default, handler: newRound))
             presentViewController(ac, animated: true, completion: nil)
         }

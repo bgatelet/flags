@@ -12,15 +12,27 @@ class StatsTableController: UITableViewController {
 
     var items = [[String]]()
     var headers = ["Countries", "US States"]
+    var unlocked = true
     
     // For the segue
     var imageName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.title = "Seen \(Ratios.totalFlagsSeen)%"
+        
         items.append(Countries.orderedKeys)
         items.append(Countries.usKeys)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        if Countries.unlocked == false {
+            if unlocked == true {
+                Countries.unlocked == true
+                Countries.save()
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -38,15 +50,22 @@ class StatsTableController: UITableViewController {
         
         // find the image for this cell, and load its thumbnail
         let currentImage = items[indexPath.section][indexPath.row]
-        let imageRootName = currentImage.stringByReplacingOccurrencesOfString(".png", withString: "")
         
-        let path = NSBundle.mainBundle().pathForResource(imageRootName, ofType: "png")!
-        cell.imageView!.image = UIImage(contentsOfFile: path)
-        
-        if imageRootName.containsString("US") {
-            cell.textLabel!.text = Countries.usStates[imageRootName]
+        if Ratios.seen[currentImage] != nil {
+            let imageRootName = currentImage.stringByReplacingOccurrencesOfString(".png", withString: "")
+            
+            let path = NSBundle.mainBundle().pathForResource(imageRootName, ofType: "png")!
+            cell.imageView!.image = UIImage(contentsOfFile: path)
+            
+            if imageRootName.containsString("US") {
+                cell.textLabel!.text = Countries.usStates[imageRootName]
+            } else {
+                cell.textLabel!.text = Countries.allRows[imageRootName]!["name"]
+            }
         } else {
-            cell.textLabel!.text = Countries.allRows[imageRootName]!["name"]
+            cell.imageView!.image = nil
+            cell.textLabel!.text = "???"
+            unlocked = false
         }
         
         return cell
@@ -61,14 +80,21 @@ class StatsTableController: UITableViewController {
         if segue.identifier == "FlagView" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let currentImage = items[indexPath.section][indexPath.row]
-                imageName = currentImage.stringByReplacingOccurrencesOfString(".png", withString: "")
                 
-                let path = NSBundle.mainBundle().pathForResource(imageName, ofType: "png")!
-                let flag = UIImage(contentsOfFile: path)
-                
-                let countryViewController = segue.destinationViewController as! CountryViewController
-                countryViewController.name = imageName
-                countryViewController.flag = flag
+                if Ratios.seen[currentImage] != nil {
+                    imageName = currentImage.stringByReplacingOccurrencesOfString(".png", withString: "")
+                    
+                    let path = NSBundle.mainBundle().pathForResource(imageName, ofType: "png")!
+                    let flag = UIImage(contentsOfFile: path)
+                    
+                    let countryViewController = segue.destinationViewController as! CountryViewController
+                    countryViewController.name = imageName
+                    countryViewController.flag = flag
+                } else {
+                    let countryViewController = segue.destinationViewController as! CountryViewController
+                    countryViewController.name = "???"
+                    countryViewController.flag = nil
+                }
             }
         }
     }

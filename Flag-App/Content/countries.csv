@@ -1,17 +1,12 @@
 continent,abbreviation,name,full name
  AS,AF,Afghanistan,Islamic Republic of Afghanistan
- EU,AX,Åland Islands,Åland Islands
  EU,AL,Albania,Republic of Albania
  AF,DZ,Algeria,Peoples Democratic Republic of Algeria
- OC,AS,American Samoa,American Samoa
  EU,AD,Andorra,Principality of Andorra
  AF,AO,Angola,Republic of Angola
- NA,AI,Anguilla,Anguilla
- AN,AQ,Antarctica,Antarctica (the territory South of 60 deg S)
  NA,AG,Antigua and Barbuda,Antigua and Barbuda
  SA,AR,Argentina,Argentine Republic
  AS,AM,Armenia,Republic of Armenia
- NA,AW,Aruba,Aruba
  OC,AU,Australia,Commonwealth of Australia
  EU,AT,Austria,Republic of Austria
  AS,AZ,Azerbaijan,Republic of Azerbaijan
@@ -23,16 +18,12 @@ continent,abbreviation,name,full name
  EU,BE,Belgium,Kingdom of Belgium
  NA,BZ,Belize,Belize
  AF,BJ,Benin,Republic of Benin
- NA,BM,Bermuda,Bermuda
  AS,BT,Bhutan,Kingdom of Bhutan
  SA,BO,Bolivia,Plurinational State of Bolivia
- NA,BQ,Bonaire,Bonaire - Sint Eustatius and Saba
  EU,BA,Bosnia and Herzegovina,Bosnia and Herzegovina
  AF,BW,Botswana,Republic of Botswana
- AN,BV,Bouvet Island,Bouvet Island (Bouvetoya)
  SA,BR,Brazil,Federative Republic of Brazil
- NA,VG,British Virgin Islands,British Virgin Islands
- AS,BN,Brunei Darussalam,Brunei Darussalam
+ AS,BN,Brunei,Brunei Darussalam
  EU,BG,Bulgaria,Republic of Bulgaria
  AF,BF,Burkina Faso,Burkina Faso
  AF,BI,Burundi,Republic of Burundi
@@ -40,24 +31,18 @@ continent,abbreviation,name,full name
  AF,CM,Cameroon,Republic of Cameroon
  NA,CA,Canada,Canada
  AF,CV,Cape Verde,Republic of Cape Verde
- NA,KY,Cayman Islands,Cayman Islands
  AF,CF,Central African Republic,Central African Republic
  AF,TD,Chad,Republic of Chad
- AS,IO,Chagos Archipelago,British Indian Ocean Territory (Chagos Archipelago)
  SA,CL,Chile,Republic of Chile
  AS,CN,China,Peoples Republic of China
- AS,CX,Christmas Island,Christmas Island
- AS,CC,Cocos Islands,Cocos (Keeling) Islands
  SA,CO,Colombia,Republic of Colombia
  AF,KM,Comoros,Union of the Comoros
  AF,CD,Congo,Democratic Republic of the Congo
  AF,CG,Congo,Republic of the Congo
- OC,CK,Cook Islands,Cook Islands
  NA,CR,Costa Rica,Republic of Costa Rica
- AF,CI,Cote dIvoire,Republic of Cote dIvoire
+ AF,CI,Cote d'Ivoire,Republic of Cote d'Ivoire
  EU,HR,Croatia,Republic of Croatia
  NA,CU,Cuba,Republic of Cuba
- NA,CW,Curaçao,Curaçao
  AS,CY,Cyprus,Republic of Cyprus
  EU,CZ,Czech Republic,Czech Republic
  EU,DK,Denmark,Kingdom of Denmark
@@ -71,32 +56,23 @@ continent,abbreviation,name,full name
  AF,ER,Eritrea,State of Eritrea
  EU,EE,Estonia,Republic of Estonia
  AF,ET,Ethiopia,Federal Democratic Republic of Ethiopia
- SA,FK,Falkland Islands,Falkland Islands (Malvinas)
- EU,FO,Faroe Islands,Faroe Islands
  OC,FJ,Fiji,Republic of Fiji
  EU,FI,Finland,Republic of Finland
  EU,FR,France,French Republic
  SA,GF,French Guiana,French Guiana
- OC,PF,French Polynesia,French Polynesia
- AN,TF,French Southern Territories,French Southern Territories
  AF,GA,Gabon,Gabonese Republic
  AF,GM,Gambia,Republic of the Gambia
  AS,GE,Georgia,Georgia
  EU,DE,Germany,Federal Republic of Germany
  AF,GH,Ghana,Republic of Ghana
- EU,GI,Gibraltar,Gibraltar
  EU,GR,Greece,Hellenic Republic Greece
- NA,GL,Greenland,Greenland
  NA,GD,Grenada,Grenada
  NA,GP,Guadeloupe,Guadeloupe
- OC,GU,Guam,Guam
  NA,GT,Guatemala,Republic of Guatemala
- EU,GG,Guernsey,Bailiwick of Guernsey
  AF,GN,Guinea,Republic of Guinea
  AF,GW,Guinea-Bissau,Republic of Guinea-Bissau
  SA,GY,Guyana,Co-operative Republic of Guyana
  NA,HT,Haiti,Republic of Haiti
- AN,HM,Heard Island and McDonald Islands,Heard Island and McDonald Islands
  EU,VA,Holy See,Holy See (Vatican City State)
  NA,HN,Honduras,Republic of Honduras
  AS,HK,Hong Kong,Hong Kong Special Administrative Region of China
@@ -107,12 +83,10 @@ continent,abbreviation,name,full name
  AS,IR,Iran,Islamic Republic of Iran
  AS,IQ,Iraq,Republic of Iraq
  EU,IE,Ireland,Ireland
- EU,IM,Isle of Man,Isle of Man
  AS,IL,Israel,State of Israel
  EU,IT,Italy,Italian Republic
  NA,JM,Jamaica,Jamaica
  AS,JP,Japan,Japan
- EU,JE,Jersey,Bailiwick of Jersey
  AS,JO,Jordan,Hashemite Kingdom of Jordan
  AS,KZ,Kazakhstan,Republic of Kazakhstan
  AF,KE,Kenya,Republic of Kenya
@@ -120,8 +94,8 @@ continent,abbreviation,name,full name
  AS,KP,North Korea,Democratic Peoples Republic of Korea
  AS,KR,South Korea,Republic of Korea
  AS,KW,Kuwait,State of Kuwait
- AS,KG,Kyrgyz Republic,Kyrgyz Republic
- AS,LA,Lao Peoples Democratic Republic,Lao Peoples Democratic Republic
+ AS,KG,Kyrgyzstan,Kyrgyz Republic
+ AS,LA,Laos,Lao Peoples Democratic Republic
  EU,LV,Latvia,Republic of Latvia
  AS,LB,Lebanon,Lebanese Republic
  AF,LS,Lesotho,Kingdom of Lesotho
@@ -142,14 +116,12 @@ continent,abbreviation,name,full name
  NA,MQ,Martinique,Martinique
  AF,MR,Mauritania,Islamic Republic of Mauritania
  AF,MU,Mauritius,Republic of Mauritius
- AF,YT,Mayotte,Mayotte
  NA,MX,Mexico,United Mexican States
  OC,FM,Micronesia,Federated States of Micronesia
  EU,MD,Moldova,Republic of Moldova
  EU,MC,Monaco,Principality of Monaco
  AS,MN,Mongolia,Mongolia
  EU,ME,Montenegro,Montenegro
- NA,MS,Montserrat,Montserrat
  AF,MA,Morocco,Kingdom of Morocco
  AF,MZ,Mozambique,Republic of Mozambique
  AS,MM,Myanmar,Republic of the Union of Myanmar
@@ -157,14 +129,10 @@ continent,abbreviation,name,full name
  OC,NR,Nauru,Republic of Nauru
  AS,NP,Nepal,Federal Democratic Republic of Nepal
  EU,NL,Netherlands,Kingdom of the Netherlands
- OC,NC,New Caledonia,New Caledonia
  OC,NZ,New Zealand,New Zealand
  NA,NI,Nicaragua,Republic of Nicaragua
  AF,NE,Niger,Republic of Niger
  AF,NG,Nigeria,Federal Republic of Nigeria
- OC,NU,Niue,Niue
- OC,NF,Norfolk Island,Norfolk Island
- OC,MP,Northern Mariana Islands,Commonwealth of the Northern Mariana Islands
  EU,NO,Norway,Kingdom of Norway
  AS,OM,Oman,Sultanate of Oman
  AS,PK,Pakistan,Islamic Republic of Pakistan
@@ -175,25 +143,17 @@ continent,abbreviation,name,full name
  SA,PY,Paraguay,Republic of Paraguay
  SA,PE,Peru,Republic of Peru
  AS,PH,Philippines,Republic of the Philippines
- OC,PN,Pitcairn Islands,Pitcairn Islands
  EU,PL,Poland,Republic of Poland
  EU,PT,Portugal,Portuguese Republic
- NA,PR,Puerto Rico,Commonwealth of Puerto Rico
  AS,QA,Qatar,State of Qatar
- AF,RE,Réunion,Réunion
  EU,RO,Romania,Romania
  EU,RU,Russian Federation,Russian Federation
  AF,RW,Rwanda,Republic of Rwanda
- NA,BL,Saint Barthélemy,Saint Barthélemy
- AF,SH,Saint Helena,Saint Helena - Ascension and Tristan da Cunha
  NA,KN,Saint Kitts and Nevis,Federation of Saint Kitts and Nevis
  NA,LC,Saint Lucia,Saint Lucia
- NA,MF,Saint Martin,Saint Martin (French part)
- NA,PM,Saint Pierre and Miquelon,Saint Pierre and Miquelon
  NA,VC,Saint Vincent and the Grenadines,Saint Vincent and the Grenadines
  OC,WS,Samoa,Independent State of Samoa
  EU,SM,San Marino,Republic of San Marino
- AN,GS,Sandwich Islands,South Georgia and the South Sandwich Islands
  AF,ST,Sao Tome and Principe,Democratic Republic of Sao Tome and Principe
  AS,SA,Saudi Arabia,Kingdom of Saudi Arabia
  AF,SN,Senegal,Republic of Senegal
@@ -201,7 +161,6 @@ continent,abbreviation,name,full name
  AF,SC,Seychelles,Republic of Seychelles
  AF,SL,Sierra Leone,Republic of Sierra Leone
  AS,SG,Singapore,Republic of Singapore
- NA,SX,Sint Maarten,Sint Maarten (Dutch part)
  EU,SK,Slovakia,Slovakia (Slovak Republic)
  EU,SI,Slovenia,Republic of Slovenia
  OC,SB,Solomon Islands,Solomon Islands
@@ -212,7 +171,6 @@ continent,abbreviation,name,full name
  AS,LK,Sri Lanka,Democratic Socialist Republic of Sri Lanka
  AF,SD,Sudan,Republic of Sudan
  SA,SR,Suriname,Republic of Suriname
- EU,SJ,Svalbard & Jan Mayen Islands,Svalbard & Jan Mayen Islands
  AF,SZ,Swaziland,Kingdom of Swaziland
  EU,SE,Sweden,Kingdom of Sweden
  EU,CH,Switzerland,Swiss Confederation
@@ -223,28 +181,22 @@ continent,abbreviation,name,full name
  AS,TH,Thailand,Kingdom of Thailand
  AS,TL,Timor-Leste,Democratic Republic of Timor-Leste
  AF,TG,Togo,Togolese Republic
- OC,TK,Tokelau,Tokelau
  OC,TO,Tonga,Kingdom of Tonga
  NA,TT,Trinidad and Tobago,Republic of Trinidad and Tobago
  AF,TN,Tunisia,Tunisian Republic
  AS,TR,Turkey,Republic of Turkey
  AS,TM,Turkmenistan,Turkmenistan
- NA,TC,Turks and Caicos Islands,Turks and Caicos Islands
  OC,TV,Tuvalu,Tuvalu
  AF,UG,Uganda,Republic of Uganda
  EU,UA,Ukraine,Ukraine
  AS,AE,United Arab Emirates,United Arab Emirates
  EU,GB,United Kingdom,United Kingdom of Great Britain & Northern Ireland
- OC,UM,United States Minor Outlying Islands,United States Minor Outlying Islands
  NA,US,United States of America,United States of America
- NA,VI,United States Virgin Islands,United States Virgin Islands
  SA,UY,Uruguay,Eastern Republic of Uruguay
  AS,UZ,Uzbekistan,Republic of Uzbekistan
  OC,VU,Vanuatu,Republic of Vanuatu
  SA,VE,Venezuela,Bolivarian Republic of Venezuela
  AS,VN,Vietnam,Socialist Republic of Vietnam
- OC,WF,Wallis and Futuna,Wallis and Futuna
- AF,EH,Western Sahara,Western Sahara
  AS,YE,Yemen,Yemen
  AF,ZM,Zambia,Republic of Zambia
  AF,ZW,Zimbabwe,Republic of Zimbabwe

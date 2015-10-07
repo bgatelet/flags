@@ -13,6 +13,9 @@ class PlayMenu: UIViewController {
     var gameKeys = [String]()
     @IBOutlet weak var difficultyLabel: UILabel!
     
+    @IBOutlet weak var ratioFlagButton: UIButton!
+    @IBOutlet weak var ratioNameButton: UIButton!
+    
     @IBAction func playButton(sender: UIButton) {
         var identifier: String
         
@@ -95,19 +98,19 @@ class PlayMenu: UIViewController {
         
         let twentyFive = UIAlertAction(title: "< 25%", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            self.gameKeys = Countries.orderedKeys
+            self.gameKeys = Ratios.underTwo
             self.performSegueWithIdentifier(identifier, sender: self)
         })
         
         let fifty = UIAlertAction(title: "< 55%", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            self.gameKeys = Countries.orderedKeys
+            self.gameKeys = Ratios.underFifty
             self.performSegueWithIdentifier(identifier, sender: self)
         })
         
         let seventyFive = UIAlertAction(title: "< 75%", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            self.gameKeys = Countries.orderedKeys
+            self.gameKeys = Ratios.underSeven
             self.performSegueWithIdentifier(identifier, sender: self)
         })
         
@@ -125,6 +128,14 @@ class PlayMenu: UIViewController {
         super.viewDidLoad()
 
         difficultyLabel.text = "Difficulty: \(Level.difficulty)"
+        
+        if Countries.unlocked == true {
+            ratioFlagButton.enabled = true
+            ratioNameButton.enabled = true
+        } else {
+            ratioFlagButton.enabled = false
+            ratioNameButton.enabled = false
+        }
     }
 
     override func didReceiveMemoryWarning() {

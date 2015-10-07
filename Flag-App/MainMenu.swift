@@ -16,21 +16,25 @@ class MainMenu: UIViewController {
         let easy = UIAlertAction(title: "easy", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             Level.difficulty = Difficulty.Easy
+            Level.save()
         })
         
         let medium = UIAlertAction(title: "medium", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             Level.difficulty = Difficulty.Medium
+            Level.save()
         })
         
         let hard = UIAlertAction(title: "hard", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             Level.difficulty = Difficulty.Hard
+            Level.save()
         })
         
         let extreme = UIAlertAction(title: "extreme", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             Level.difficulty = Difficulty.Extreme
+            Level.save()
         })
         
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)

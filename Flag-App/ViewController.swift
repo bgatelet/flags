@@ -17,6 +17,27 @@ enum Difficulty: Int {
 
 struct Level {
     static var difficulty = Difficulty.Medium
+    
+    static func save() {
+        let savedDifficulty = NSKeyedArchiver.archivedDataWithRootObject(difficulty.rawValue)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(savedDifficulty, forKey: "difficulty")
+    }
+    
+    static func setDiffulty (level: Int64) {
+        switch level {
+        case 2:
+            difficulty = Difficulty.Easy
+        case 4:
+            difficulty = Difficulty.Medium
+        case 6:
+            difficulty = Difficulty.Hard
+        case 8:
+            difficulty = Difficulty.Extreme
+        default:
+            difficulty = Difficulty.Medium
+        }
+    }
 }
 
 struct Countries {
@@ -32,12 +53,57 @@ struct Countries {
     
     static var usStates = [String: String]()
     static var usKeys = [String]()
+    
+    static var allKeys: Int!
+    
+    static var unlocked = false
+    
+    static func save() {
+        let lock = NSKeyedArchiver.archivedDataWithRootObject(unlocked)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(lock, forKey: "ratioLock")
+    }
+}
+
+struct Ratios {
+    static var seen = [String: Int]()
+    static var correct = [String: Int]()
+    static var ratioAll = [String: Double]()
+    static var totalFlagsSeen: Double!
+    
+    static var underTwo = [String]()
+    static var underFifty = [String]()
+    static var underSeven = [String]()
+    
+    static func save() {
+        let savedData = NSKeyedArchiver.archivedDataWithRootObject(seen)
+        let otherSavedData = NSKeyedArchiver.archivedDataWithRootObject(correct)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(savedData, forKey: "seen")
+        defaults.setObject(otherSavedData, forKey: "correct")
+    }
 }
 
 class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if let seen = defaults.objectForKey("seen") as? NSData {
+            Ratios.seen = NSKeyedUnarchiver.unarchiveObjectWithData(seen) as! [String: Int]
+        }
+        if let correct = defaults.objectForKey("correct") as? NSData {
+            Ratios.correct = NSKeyedUnarchiver.unarchiveObjectWithData(correct) as! [String: Int]
+        }
+        if let difficulty = defaults.objectForKey("difficulty") as? NSData {
+            let data = NSKeyedUnarchiver.unarchiveObjectWithData(difficulty)
+            Level.setDiffulty((data?.longLongValue)!)
+        }
+        if let lock = defaults.objectForKey("ratioLock") as? NSData {
+            Countries.unlocked = NSKeyedUnarchiver.unarchiveObjectWithData(lock) as! Bool
+        }
         
         let path = NSBundle.mainBundle().pathForResource("countries", ofType: "csv")!
         
@@ -82,6 +148,24 @@ class ViewController: UIViewController {
                 let abb = csvUS.rows[row]["abbreviation"]!
                 Countries.usKeys.append(abb)
                 Countries.usStates[abb] = csvUS.rows[row]["name"]!
+            }
+        }
+        
+        Countries.allKeys = Countries.orderedKeys.count + Countries.usKeys.count
+        Ratios.totalFlagsSeen = round((Double(Ratios.seen.count) / Double(Countries.allKeys) * 100.0) * 4.0) / 4.0
+        
+        for (key, value) in Ratios.seen {
+            if let ratioCorrect =  Ratios.correct[key] {
+                Ratios.ratioAll[key] = round((Double(ratioCorrect) / Double(value)) * 100.0 * 4.0) / 4.0
+                
+                let ratioTemp = Ratios.ratioAll[key]
+                if ratioTemp < 25.0 {
+                    Ratios.underTwo.append(key)
+                } else if ratioTemp < 50.0 {
+                    Ratios.underFifty.append(key)
+                } else if ratioTemp < 75.0 {
+                    Ratios.underSeven.append(key)
+                }
             }
         }
     }
