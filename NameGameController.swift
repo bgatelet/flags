@@ -218,7 +218,7 @@ class NameGameController: UIViewController {
         }
     }
     
-    func popBack(sender: UIAlertAction) {
+    func popBack(sender: UIAlertAction!) {
         navigationController?.popViewControllerAnimated(true)
     }
     

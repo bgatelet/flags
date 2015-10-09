@@ -17,29 +17,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOUCH TO START" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNa-LQ-bLQ">
-                                <rect key="frame" x="229" y="386" width="142" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLAGS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1d-Z5-5gI">
+                                <rect key="frame" x="136" y="231.5" width="328" height="137"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="137" id="D3S-QT-kLt"/>
+                                    <constraint firstAttribute="width" constant="328" id="OQz-e9-fVE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AlNile" family="Al Nile" pointSize="100"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLAGS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1d-Z5-5gI">
-                                <rect key="frame" x="269" y="273" width="52" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOUCH TO START" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNa-LQ-bLQ">
+                                <rect key="frame" x="198.5" y="328.5" width="204.5" height="33"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="y6r-zK-daU"/>
+                                    <constraint firstAttribute="width" constant="204.5" id="Gid-kg-W9g"/>
+                                    <constraint firstAttribute="height" constant="33" id="Xnk-Or-pLF"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="AlNile" family="Al Nile" pointSize="24"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.030145655374868241" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rNa-LQ-bLQ" firstAttribute="top" secondItem="C1d-Z5-5gI" secondAttribute="bottom" constant="92" id="E9R-5h-h9t"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rNa-LQ-bLQ" secondAttribute="bottom" constant="193" id="GFZ-JU-o1I"/>
-                            <constraint firstItem="C1d-Z5-5gI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="269" id="GZa-SL-YkO"/>
-                            <constraint firstItem="C1d-Z5-5gI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="253" id="NHa-lg-mLs"/>
-                            <constraint firstItem="rNa-LQ-bLQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dOA-Tq-TPy"/>
+                            <constraint firstItem="rNa-LQ-bLQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ISX-JG-rr6"/>
+                            <constraint firstItem="C1d-Z5-5gI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aFU-he-23P"/>
+                            <constraint firstItem="C1d-Z5-5gI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gc8-79-TBK"/>
+                            <constraint firstItem="rNa-LQ-bLQ" firstAttribute="top" secondItem="C1d-Z5-5gI" secondAttribute="bottom" constant="-40" id="r4u-1I-mOt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YlJ-5t-CC8"/>
@@ -103,28 +108,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?????" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkm-bT-KOQ">
-                                <rect key="frame" x="279.5" y="178" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="2Ig-ob-O4h"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nui-rc-E7c">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nui-rc-E7c">
                                 <rect key="frame" x="119" y="246.5" width="363" height="195"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="363" id="7B3-Cj-iDj"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euM-RY-NBo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="???" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euM-RY-NBo">
                                 <rect key="frame" x="288" y="141" width="25" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not seen yet." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toq-Qe-P4c">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Not seen yet." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toq-Qe-P4c">
                                 <rect key="frame" x="251" y="451.5" width="101.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -133,20 +129,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="euM-RY-NBo" firstAttribute="centerX" secondItem="xkm-bT-KOQ" secondAttribute="centerX" id="09E-Iy-Lra"/>
                             <constraint firstItem="toq-Qe-P4c" firstAttribute="centerX" secondItem="RFg-iV-FXa" secondAttribute="centerX" constant="1.5" id="1Ob-Pw-MSd"/>
-                            <constraint firstItem="nui-rc-E7c" firstAttribute="centerX" secondItem="xkm-bT-KOQ" secondAttribute="centerX" id="4VI-9p-uzS"/>
                             <constraint firstItem="euM-RY-NBo" firstAttribute="top" secondItem="wKe-CJ-ikd" secondAttribute="bottom" constant="77" id="7o8-BM-VEA"/>
                             <constraint firstItem="toq-Qe-P4c" firstAttribute="centerY" secondItem="RFg-iV-FXa" secondAttribute="centerY" constant="214.5" id="Ie9-Pj-DC0"/>
-                            <constraint firstItem="xkm-bT-KOQ" firstAttribute="top" secondItem="wKe-CJ-ikd" secondAttribute="bottom" constant="114" id="Nbe-0o-m4P"/>
-                            <constraint firstItem="xkm-bT-KOQ" firstAttribute="centerX" secondItem="RFg-iV-FXa" secondAttribute="centerX" id="SWb-YC-34J"/>
                             <constraint firstItem="hLn-QN-Ch9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="toq-Qe-P4c" secondAttribute="bottom" constant="75" id="SzC-kj-J7Q"/>
                             <constraint firstItem="hLn-QN-Ch9" firstAttribute="top" secondItem="nui-rc-E7c" secondAttribute="bottom" constant="159" id="WhL-Ir-USx"/>
-                            <constraint firstItem="xkm-bT-KOQ" firstAttribute="top" secondItem="euM-RY-NBo" secondAttribute="bottom" constant="16" id="X2U-8t-zlq"/>
                             <constraint firstItem="toq-Qe-P4c" firstAttribute="top" secondItem="nui-rc-E7c" secondAttribute="bottom" constant="10" id="aLm-D3-sle"/>
                             <constraint firstItem="hLn-QN-Ch9" firstAttribute="top" secondItem="euM-RY-NBo" secondAttribute="bottom" constant="76" id="cPk-t8-Dd1"/>
                             <constraint firstItem="nui-rc-E7c" firstAttribute="centerY" secondItem="RFg-iV-FXa" secondAttribute="centerY" constant="44" id="lsO-Nb-V3A"/>
-                            <constraint firstItem="nui-rc-E7c" firstAttribute="top" secondItem="xkm-bT-KOQ" secondAttribute="bottom" constant="48" id="p55-Qm-Pxq"/>
                             <constraint firstItem="nui-rc-E7c" firstAttribute="centerX" secondItem="RFg-iV-FXa" secondAttribute="centerX" id="wbF-VE-lxU"/>
                             <constraint firstItem="nui-rc-E7c" firstAttribute="leading" secondItem="RFg-iV-FXa" secondAttribute="leadingMargin" constant="99" id="yFo-U2-Ue4"/>
                         </constraints>
@@ -161,7 +151,6 @@
                     <connections>
                         <outlet property="countryContinent" destination="euM-RY-NBo" id="0I3-sk-PFz"/>
                         <outlet property="countryFlag" destination="nui-rc-E7c" id="fk5-IZ-HjY"/>
-                        <outlet property="countryName" destination="xkm-bT-KOQ" id="lee-t8-H6v"/>
                         <outlet property="countryRatio" destination="toq-Qe-P4c" id="CdW-tf-7WP"/>
                     </connections>
                 </viewController>

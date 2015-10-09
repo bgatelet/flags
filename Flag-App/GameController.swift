@@ -91,7 +91,7 @@ class GameController: UICollectionViewController {
         }
     }
     
-    func popBack(sender: UIAlertAction) {
+    func popBack(sender: UIAlertAction!) {
         navigationController?.popViewControllerAnimated(true)
     }
 

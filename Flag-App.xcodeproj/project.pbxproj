@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4EDA8BFA1BC7CE0700BD966D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA8BF91BC7CE0700BD966D /* Game.swift */; settings = {ASSET_TAGS = (); }; };
+		4EDA8C041BC807E100BD966D /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EDA8C011BC807E100BD966D /* background.png */; settings = {ASSET_TAGS = (); }; };
+		4EDA8C051BC807E100BD966D /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EDA8C021BC807E100BD966D /* background@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4EDA8C061BC807E100BD966D /* background@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EDA8C031BC807E100BD966D /* background@3x.png */; settings = {ASSET_TAGS = (); }; };
 		4EE885231BC00C3200C87F66 /* StatsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE885221BC00C3200C87F66 /* StatsTableController.swift */; settings = {ASSET_TAGS = (); }; };
 		4EE885251BC00C9800C87F66 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE885241BC00C9800C87F66 /* CountryViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4EE885291BC00EBF00C87F66 /* PlayMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE885281BC00EBF00C87F66 /* PlayMenu.swift */; settings = {ASSET_TAGS = (); }; };
@@ -944,7 +946,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4EDA8BF91BC7CE0700BD966D /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		4EDA8C011BC807E100BD966D /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		4EDA8C021BC807E100BD966D /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
+		4EDA8C031BC807E100BD966D /* background@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@3x.png"; sourceTree = "<group>"; };
 		4EE885221BC00C3200C87F66 /* StatsTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsTableController.swift; sourceTree = "<group>"; };
 		4EE885241BC00C9800C87F66 /* CountryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
 		4EE885281BC00EBF00C87F66 /* PlayMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayMenu.swift; sourceTree = "<group>"; };
@@ -1897,6 +1901,9 @@
 		4EE885321BC26F1700C87F66 /* Content */ = {
 			isa = PBXGroup;
 			children = (
+				4EDA8C011BC807E100BD966D /* background.png */,
+				4EDA8C021BC807E100BD966D /* background@2x.png */,
+				4EDA8C031BC807E100BD966D /* background@3x.png */,
 				4EE887291BC309B700C87F66 /* countries.csv */,
 				4EE88E381BC3FD8100C87F66 /* USstates.csv */,
 				4EE8872D1BC3D05800C87F66 /* Flags */,
@@ -2848,7 +2855,6 @@
 				4EE885281BC00EBF00C87F66 /* PlayMenu.swift */,
 				4EE885301BC0105A00C87F66 /* GameController.swift */,
 				4EE88E3C1BC41C0B00C87F66 /* NameGameController.swift */,
-				4EDA8BF91BC7CE0700BD966D /* Game.swift */,
 			);
 			path = "Flag-App";
 			sourceTree = "<group>";
@@ -3276,6 +3282,7 @@
 				4EE88BBD1BC3D05C00C87F66 /* GS.png in Resources */,
 				4EE88DA51BC3D05C00C87F66 /* US-MA@3x.png in Resources */,
 				4EE88C321BC3D05C00C87F66 /* LI.png in Resources */,
+				4EDA8C061BC807E100BD966D /* background@3x.png in Resources */,
 				4EE88D8D1BC3D05C00C87F66 /* US-HI@3x.png in Resources */,
 				4EE88E131BC3D05C00C87F66 /* VE@2x.png in Resources */,
 				4EE88C4D1BC3D05C00C87F66 /* MC.png in Resources */,
@@ -3528,6 +3535,7 @@
 				4EE88C941BC3D05C00C87F66 /* NC@3x.png in Resources */,
 				4EE88BDA1BC3D05C00C87F66 /* HT@3x.png in Resources */,
 				4EE88C221BC3D05C00C87F66 /* KW@3x.png in Resources */,
+				4EDA8C051BC807E100BD966D /* background@2x.png in Resources */,
 				4EE88ACB1BC3D05C00C87F66 /* AQ@2x.png in Resources */,
 				4EE88DDA1BC3D05C00C87F66 /* US-OR@2x.png in Resources */,
 				4EE88E111BC3D05C00C87F66 /* VC@3x.png in Resources */,
@@ -3776,6 +3784,7 @@
 				4EE88D681BC3D05C00C87F66 /* UM@2x.png in Resources */,
 				4EE88CB41BC3D05C00C87F66 /* OM@2x.png in Resources */,
 				4EECC8E31BBEE9E700427F7A /* Main.storyboard in Resources */,
+				4EDA8C041BC807E100BD966D /* background.png in Resources */,
 				4EE88BD91BC3D05C00C87F66 /* HT@2x.png in Resources */,
 				4EE88B6E1BC3D05C00C87F66 /* EC@3x.png in Resources */,
 				4EE88AC61BC3D05C00C87F66 /* AM@3x.png in Resources */,
@@ -3907,7 +3916,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EE885231BC00C3200C87F66 /* StatsTableController.swift in Sources */,
-				4EDA8BFA1BC7CE0700BD966D /* Game.swift in Sources */,
 				4EECC8E01BBEE9E700427F7A /* ViewController.swift in Sources */,
 				4EECC90C1BBEF00A00427F7A /* MainMenu.swift in Sources */,
 				4EE885291BC00EBF00C87F66 /* PlayMenu.swift in Sources */,

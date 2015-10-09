@@ -131,6 +131,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
+        
         let defaults = NSUserDefaults.standardUserDefaults()
         
         if let seen = defaults.objectForKey("seen") as? NSData {

@@ -23,10 +23,10 @@ class CountryViewController: UIViewController {
         
         if name != "???" {
             if name.containsString("US-") {
-                countryName.text = Countries.usStates[name]
+                self.title = Countries.usStates[name]
                 countryContinent.text = "North America"
             } else {
-                countryName.text = Countries.allRows[name]!["full name"]
+                self.title = Countries.allRows[name]!["full name"]
                 
                 let continent = Countries.allRows[name]!["continent"]!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
                 
@@ -61,6 +61,7 @@ class CountryViewController: UIViewController {
                     countryRatio.text = "Guessed correctly: \(ratio)%"
                 }
             } else {
+                self.title = "???"
                 countryRatio.text = "Not yet seen."
             }
         }
