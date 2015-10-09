@@ -20,19 +20,11 @@ class StatsTableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Ratios.updateTotal()
         self.title = "Seen \(Ratios.totalFlagsSeen)%"
         
         items.append(Countries.orderedKeys)
         items.append(Countries.usKeys)
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        if Countries.unlocked == false {
-            if unlocked == true {
-                Countries.unlocked == true
-                Countries.save()
-            }
-        }
     }
 
     // MARK: - Table view data source
@@ -57,7 +49,7 @@ class StatsTableController: UITableViewController {
             let path = NSBundle.mainBundle().pathForResource(imageRootName, ofType: "png")!
             cell.imageView!.image = UIImage(contentsOfFile: path)
             
-            if imageRootName.containsString("US") {
+            if imageRootName.containsString("US-") {
                 cell.textLabel!.text = Countries.usStates[imageRootName]
             } else {
                 cell.textLabel!.text = Countries.allRows[imageRootName]!["name"]

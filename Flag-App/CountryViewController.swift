@@ -22,7 +22,7 @@ class CountryViewController: UIViewController {
         super.viewDidLoad()
         
         if name != "???" {
-            if name.containsString("US") {
+            if name.containsString("US-") {
                 countryName.text = Countries.usStates[name]
                 countryContinent.text = "North America"
             } else {
@@ -57,7 +57,7 @@ class CountryViewController: UIViewController {
                 if let ratioCorrect =  Ratios.correct[name] {
                     
                     // Conversion to Double must be made explicit
-                    let ratio = round((Double(ratioCorrect) / Double(ratioSeen)) * 100.0 * 4.0) / 4.0
+                    let ratio = round(Double(ratioCorrect) / Double(ratioSeen) * 100.0 * 4.0) / 4.0
                     countryRatio.text = "Guessed correctly: \(ratio)%"
                 }
             } else {

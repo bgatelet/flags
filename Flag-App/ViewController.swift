@@ -82,6 +82,48 @@ struct Ratios {
         defaults.setObject(savedData, forKey: "seen")
         defaults.setObject(otherSavedData, forKey: "correct")
     }
+    
+    static func updateTotal() {
+        Countries.allKeys = Countries.orderedKeys.count + Countries.usKeys.count
+        Ratios.totalFlagsSeen = round((Double(Ratios.seen.count) / Double(Countries.allKeys) * 100.0) * 4.0) / 4.0
+        
+        underTwo = [String]()
+        underFifty = [String]()
+        underSeven = [String]()
+        
+        for (key, value) in Ratios.seen {
+            if let ratioCorrect =  Ratios.correct[key] {
+                
+                Ratios.ratioAll[key] = round((Double(ratioCorrect) / Double(value)) * 100.0 * 4.0) / 4.0
+                
+                let ratioTemp = Ratios.ratioAll[key]
+                if ratioTemp < 25.0 {
+                    Ratios.underTwo.append(key)
+                } else if ratioTemp < 50.0 {
+                    Ratios.underFifty.append(key)
+                } else if ratioTemp < 75.0 {
+                    Ratios.underSeven.append(key)
+                }
+            }
+        }
+        
+        if Ratios.ratioAll.count == Countries.allKeys {
+            Countries.unlocked = true
+            Countries.save()
+        }
+    }
+    
+    static func analyzeArea(keys: [String]) -> Int {
+        var counter = 0
+        
+        for key in keys {
+            if Ratios.seen[key] != nil {
+                ++counter
+            }
+        }
+        
+        return counter
+    }
 }
 
 class ViewController: UIViewController {
@@ -151,23 +193,7 @@ class ViewController: UIViewController {
             }
         }
         
-        Countries.allKeys = Countries.orderedKeys.count + Countries.usKeys.count
-        Ratios.totalFlagsSeen = round((Double(Ratios.seen.count) / Double(Countries.allKeys) * 100.0) * 4.0) / 4.0
-        
-        for (key, value) in Ratios.seen {
-            if let ratioCorrect =  Ratios.correct[key] {
-                Ratios.ratioAll[key] = round((Double(ratioCorrect) / Double(value)) * 100.0 * 4.0) / 4.0
-                
-                let ratioTemp = Ratios.ratioAll[key]
-                if ratioTemp < 25.0 {
-                    Ratios.underTwo.append(key)
-                } else if ratioTemp < 50.0 {
-                    Ratios.underFifty.append(key)
-                } else if ratioTemp < 75.0 {
-                    Ratios.underSeven.append(key)
-                }
-            }
-        }
+        Ratios.updateTotal()
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4EDA8BFA1BC7CE0700BD966D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA8BF91BC7CE0700BD966D /* Game.swift */; settings = {ASSET_TAGS = (); }; };
 		4EE885231BC00C3200C87F66 /* StatsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE885221BC00C3200C87F66 /* StatsTableController.swift */; settings = {ASSET_TAGS = (); }; };
 		4EE885251BC00C9800C87F66 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE885241BC00C9800C87F66 /* CountryViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4EE885291BC00EBF00C87F66 /* PlayMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE885281BC00EBF00C87F66 /* PlayMenu.swift */; settings = {ASSET_TAGS = (); }; };
@@ -943,6 +944,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4EDA8BF91BC7CE0700BD966D /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		4EE885221BC00C3200C87F66 /* StatsTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsTableController.swift; sourceTree = "<group>"; };
 		4EE885241BC00C9800C87F66 /* CountryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
 		4EE885281BC00EBF00C87F66 /* PlayMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayMenu.swift; sourceTree = "<group>"; };
@@ -2846,6 +2848,7 @@
 				4EE885281BC00EBF00C87F66 /* PlayMenu.swift */,
 				4EE885301BC0105A00C87F66 /* GameController.swift */,
 				4EE88E3C1BC41C0B00C87F66 /* NameGameController.swift */,
+				4EDA8BF91BC7CE0700BD966D /* Game.swift */,
 			);
 			path = "Flag-App";
 			sourceTree = "<group>";
@@ -3904,6 +3907,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EE885231BC00C3200C87F66 /* StatsTableController.swift in Sources */,
+				4EDA8BFA1BC7CE0700BD966D /* Game.swift in Sources */,
 				4EECC8E01BBEE9E700427F7A /* ViewController.swift in Sources */,
 				4EECC90C1BBEF00A00427F7A /* MainMenu.swift in Sources */,
 				4EE885291BC00EBF00C87F66 /* PlayMenu.swift in Sources */,

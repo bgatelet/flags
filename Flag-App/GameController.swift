@@ -12,18 +12,24 @@ import UIKit
 class GameController: UICollectionViewController {
     
     var gameType = [String]()
+    var keysCopy = [String]()
     var currentGame = [String]()
     var solution = [String: AnyObject]()
     var played = [String]()
     var rounds = 0
     var correct = 0
     var count = 0
+    var seenCount = 0
     var message: String!
+    var isRatio = false
+    var ratioType: Int!
+    var finishCounter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         count = gameType.count
+        keysCopy = gameType
         
         newRound(nil)
     }
@@ -31,7 +37,23 @@ class GameController: UICollectionViewController {
     func newRound(action: UIAlertAction!) {
         // The last ones not seen get recycled and have a higher chance of being seen next time.
         if gameType.count < Level.difficulty.rawValue {
-            gameType += played
+            finishCounter = 0
+            
+            for key in keysCopy {
+                let ratio = round(Double(Ratios.correct[key]!) / Double(Ratios.seen[key]!) * 100.0 * 4.0) / 4.0
+                if ratio < Double(ratioType) {
+                    ++finishCounter
+                }
+            }
+            
+            if finishCounter < Level.difficulty.rawValue {
+                let ac = UIAlertController(title: "Finished!", message: "There are not enough flags left to play this mode.", preferredStyle: .Alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: popBack))
+                presentViewController(ac, animated: true, completion: nil)
+            }
+            
+            gameType = [String]()
+            gameType = keysCopy
             played = [String]()
         }
         
@@ -47,7 +69,7 @@ class GameController: UICollectionViewController {
         solution["countryAbb"] = currentGame[solutionFlag]
         solution["countryIndex"] = solutionFlag
         
-        if currentGame[solutionFlag].containsString("US") {
+        if currentGame[solutionFlag].containsString("US-") {
             self.title = Countries.usStates[currentGame[solutionFlag]]
         } else {
             self.title = Countries.allRows[currentGame[solutionFlag]]!["name"]
@@ -58,7 +80,19 @@ class GameController: UICollectionViewController {
     }
     
     func setMessage() {
-        message = "Correct: \(round(Double(correct) / Double(rounds) * 100.0) * 4.0 / 4.0)%"
+        
+        if isRatio == false {
+            seenCount = Ratios.analyzeArea(keysCopy)
+            message = "Correct: \(round(Double(correct) / Double(rounds) * 100.0) * 4.0 / 4.0)%\nSeen: \(seenCount)/\(keysCopy.count)"
+        } else {
+            let currentFlag = solution["countryAbb"] as! String
+            let ratio = round(Double(Ratios.correct[currentFlag]!) / Double(Ratios.seen[currentFlag]!) * 100.0 * 4.0) / 4.0
+            message = "Guessed correctly: \(ratio)%"
+        }
+    }
+    
+    func popBack(sender: UIAlertAction) {
+        navigationController?.popViewControllerAnimated(true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -127,7 +161,7 @@ class GameController: UICollectionViewController {
             let flagIndex = (solution["countryIndex"] as! Int) + 1
             var choice: String
             
-            if currentGame[indexPath.item].containsString("US") {
+            if currentGame[indexPath.item].containsString("US-") {
                 choice = Countries.usStates[currentGame[indexPath.item]]!
             } else {
                 choice = Countries.allRows[currentGame[indexPath.item]]!["name"]!

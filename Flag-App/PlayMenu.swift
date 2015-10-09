@@ -11,13 +11,20 @@ import UIKit
 class PlayMenu: UIViewController {
     
     var gameKeys = [String]()
+    var isRatioBool = false
+    var ratioCheck = 0
+    
     @IBOutlet weak var difficultyLabel: UILabel!
+    @IBOutlet weak var seenLabel: UILabel!
     
     @IBOutlet weak var ratioFlagButton: UIButton!
     @IBOutlet weak var ratioNameButton: UIButton!
     
     @IBAction func playButton(sender: UIButton) {
         var identifier: String
+        
+        isRatioBool = false
+        ratioCheck = 100
         
         if sender.titleLabel!.text == "Flag" {
             identifier = "flagPlay"
@@ -88,6 +95,8 @@ class PlayMenu: UIViewController {
     @IBAction func ratioButton(sender: UIButton) {
         var identifier: String
         
+        isRatioBool = true
+        
         if sender.titleLabel!.text == "Ratio Flag" {
             identifier = "flagPlay"
         } else {
@@ -102,7 +111,7 @@ class PlayMenu: UIViewController {
             self.performSegueWithIdentifier(identifier, sender: self)
         })
         
-        let fifty = UIAlertAction(title: "< 55%", style: .Default, handler: {
+        let fifty = UIAlertAction(title: "< 50%", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             self.gameKeys = Ratios.underFifty
             self.performSegueWithIdentifier(identifier, sender: self)
@@ -116,18 +125,17 @@ class PlayMenu: UIViewController {
         
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         
-        ac.addAction(twentyFive)
-        ac.addAction(fifty)
-        ac.addAction(seventyFive)
+        if ratioCheck <= 25 { ac.addAction(twentyFive) }
+        if ratioCheck <= 50 { ac.addAction(fifty) }
+        if ratioCheck <= 75 { ac.addAction(seventyFive) }
         ac.addAction(cancel)
         
         self.presentViewController(ac, animated: true, completion: nil)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        difficultyLabel.text = "Difficulty: \(Level.difficulty)"
+    override func viewDidAppear(animated: Bool) {
+        Ratios.updateTotal()
+        seenLabel.text = "Seen: \(Ratios.seen.count)/\(Countries.allKeys)"
         
         if Countries.unlocked == true {
             ratioFlagButton.enabled = true
@@ -136,6 +144,22 @@ class PlayMenu: UIViewController {
             ratioFlagButton.enabled = false
             ratioNameButton.enabled = false
         }
+        
+        if Ratios.underTwo.count > Level.difficulty.rawValue {
+            ratioCheck = 25
+        } else if Ratios.underFifty.count > Level.difficulty.rawValue {
+            ratioCheck = 50
+        } else if Ratios.underSeven.count > Level.difficulty.rawValue {
+            ratioCheck = 75
+        } else {
+            ratioCheck = 100
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        difficultyLabel.text = "Difficulty: \(Level.difficulty)"
     }
 
     override func didReceiveMemoryWarning() {
@@ -148,9 +172,13 @@ class PlayMenu: UIViewController {
         if segue.identifier == "flagPlay" {
             let gameController = segue.destinationViewController as! GameController
             gameController.gameType = gameKeys
+            gameController.isRatio = isRatioBool
+            gameController.ratioType = ratioCheck
         } else if segue.identifier == "namePlay" {
             let gameController = segue.destinationViewController as! NameGameController
             gameController.gameType = gameKeys
+            gameController.isRatio = isRatioBool
+            gameController.ratioType = ratioCheck
         }
     }
 
