@@ -126,6 +126,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not seen yet." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toq-Qe-P4c">
+                                <rect key="frame" x="240.5" y="518" width="119" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euM-RY-NBo">
+                                <rect key="frame" x="285.5" y="101.5" width="30.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nui-rc-E7c">
                                 <rect key="frame" x="44" y="147" width="512" height="306"/>
                                 <constraints>
@@ -144,25 +156,9 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not seen yet." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toq-Qe-P4c">
-                                <rect key="frame" x="240.5" y="518" width="119" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=compact" misplaced="YES">
-                                    <rect key="frame" x="241.5" y="354" width="119" height="24"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euM-RY-NBo">
-                                <rect key="frame" x="285.5" y="101.5" width="30.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nui-rc-E7c" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RFg-iV-FXa" secondAttribute="leading" constant="10" id="2Qn-h3-2I5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="toq-Qe-P4c" secondAttribute="trailing" constant="0.5" id="2e3-KU-vvr"/>
                             <constraint firstItem="toq-Qe-P4c" firstAttribute="top" secondItem="nui-rc-E7c" secondAttribute="bottom" constant="31" id="4Y4-yj-U8u">
                                 <variation key="heightClass=compact-widthClass=compact" constant="32"/>
@@ -185,9 +181,6 @@
                             <constraint firstItem="nui-rc-E7c" firstAttribute="centerX" secondItem="RFg-iV-FXa" secondAttribute="centerX" id="OD1-r2-W2b">
                                 <variation key="widthClass=compact" constant="0.0"/>
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
-                            </constraint>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nui-rc-E7c" secondAttribute="trailing" constant="10" id="R9t-l5-7by">
-                                <variation key="widthClass=compact" constant="10"/>
                             </constraint>
                             <constraint firstItem="euM-RY-NBo" firstAttribute="centerX" secondItem="nui-rc-E7c" secondAttribute="centerX" id="UaC-k0-3jG">
                                 <variation key="widthClass=compact" constant="0.5"/>
@@ -534,7 +527,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AD" translatesAutoresizingMaskIntoConstraints="NO" id="emd-G8-J2H">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IzL-g5-sYp">
+                                <rect key="frame" x="120" y="370" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="button:" destination="aNd-mr-TCc" eventType="touchUpInside" id="TOo-DR-p74"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juW-uM-giV">
+                                <rect key="frame" x="434" y="490" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="button:" destination="aNd-mr-TCc" eventType="touchUpInside" id="onf-rA-rmh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6b-Ac-UeQ">
+                                <rect key="frame" x="434" y="430" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="button:" destination="aNd-mr-TCc" eventType="touchUpInside" id="EQd-xv-EI9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sjl-zJ-2dj">
+                                <rect key="frame" x="120" y="430" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="button:" destination="aNd-mr-TCc" eventType="touchUpInside" id="qIL-KQ-gWk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOD-sa-fOH">
+                                <rect key="frame" x="434" y="550" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="button:" destination="aNd-mr-TCc" eventType="touchUpInside" id="OYD-qj-a9D"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qct-6B-8Pz">
+                                <rect key="frame" x="120" y="490" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="button:" destination="aNd-mr-TCc" eventType="touchUpInside" id="Aef-PG-Qsd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Nt-D2-yQM">
+                                <rect key="frame" x="120" y="550" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="button:" destination="aNd-mr-TCc" eventType="touchUpInside" id="8uB-mi-cBJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ym-ap-p20">
+                                <rect key="frame" x="434" y="370" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="button:" destination="aNd-mr-TCc" eventType="touchUpInside" id="K1d-T1-WzG"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="emd-G8-J2H">
                                 <rect key="frame" x="120" y="86" width="360" height="254"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="360" id="Bpe-fH-tTn">
@@ -552,86 +601,6 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IzL-g5-sYp">
-                                <rect key="frame" x="120" y="370" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <variation key="heightClass=compact" misplaced="YES">
-                                    <rect key="frame" x="335" y="116" width="46" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="button:" destination="aNd-mr-TCc" eventType="touchUpInside" id="TOo-DR-p74"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juW-uM-giV">
-                                <rect key="frame" x="434" y="490" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <variation key="heightClass=compact" misplaced="YES">
-                                    <rect key="frame" x="534" y="266" width="46" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="button:" destination="aNd-mr-TCc" eventType="touchUpInside" id="onf-rA-rmh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6b-Ac-UeQ">
-                                <rect key="frame" x="434" y="430" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <variation key="heightClass=compact" misplaced="YES">
-                                    <rect key="frame" x="534" y="206" width="46" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="button:" destination="aNd-mr-TCc" eventType="touchUpInside" id="EQd-xv-EI9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sjl-zJ-2dj">
-                                <rect key="frame" x="120" y="430" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <variation key="heightClass=compact" misplaced="YES">
-                                    <rect key="frame" x="335" y="176" width="46" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="button:" destination="aNd-mr-TCc" eventType="touchUpInside" id="qIL-KQ-gWk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOD-sa-fOH">
-                                <rect key="frame" x="434" y="550" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <variation key="heightClass=compact" misplaced="YES">
-                                    <rect key="frame" x="534" y="326" width="46" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="button:" destination="aNd-mr-TCc" eventType="touchUpInside" id="OYD-qj-a9D"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qct-6B-8Pz">
-                                <rect key="frame" x="120" y="490" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <variation key="heightClass=compact" misplaced="YES">
-                                    <rect key="frame" x="335" y="236" width="46" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="button:" destination="aNd-mr-TCc" eventType="touchUpInside" id="Aef-PG-Qsd"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Nt-D2-yQM">
-                                <rect key="frame" x="120" y="550" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <variation key="heightClass=compact" misplaced="YES">
-                                    <rect key="frame" x="335" y="296" width="46" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="button:" destination="aNd-mr-TCc" eventType="touchUpInside" id="8uB-mi-cBJ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ym-ap-p20">
-                                <rect key="frame" x="434" y="370" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <variation key="heightClass=compact" misplaced="YES">
-                                    <rect key="frame" x="534" y="146" width="46" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="button:" destination="aNd-mr-TCc" eventType="touchUpInside" id="K1d-T1-WzG"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -669,11 +638,6 @@
                                 <variation key="heightClass=compact-widthClass=compact" constant="-20"/>
                             </constraint>
                             <constraint firstItem="f6b-Ac-UeQ" firstAttribute="trailing" secondItem="4ym-ap-p20" secondAttribute="trailing" id="gzJ-PK-gE8"/>
-                            <constraint firstItem="emd-G8-J2H" firstAttribute="top" secondItem="iyO-J6-GAZ" secondAttribute="bottom" constant="22" id="juS-m0-q8m">
-                                <variation key="heightClass=compact" constant="52"/>
-                                <variation key="widthClass=compact" constant="31"/>
-                                <variation key="heightClass=compact-widthClass=compact" constant="60"/>
-                            </constraint>
                             <constraint firstItem="1Nt-D2-yQM" firstAttribute="leading" secondItem="Qct-6B-8Pz" secondAttribute="leading" id="lEl-4c-BKy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="f6b-Ac-UeQ" secondAttribute="trailing" id="lm3-fo-EfY">
                                 <variation key="heightClass=compact-widthClass=compact" constant="35"/>
@@ -685,6 +649,7 @@
                                 <variation key="heightClass=compact" constant="-153.5"/>
                                 <variation key="heightClass=compact-widthClass=compact" constant="-142.5"/>
                             </constraint>
+                            <constraint firstItem="emd-G8-J2H" firstAttribute="top" secondItem="iyO-J6-GAZ" secondAttribute="bottom" constant="31" id="rge-jl-yKb"/>
                             <constraint firstItem="4ym-ap-p20" firstAttribute="top" secondItem="iyO-J6-GAZ" secondAttribute="bottom" constant="55" id="tAl-7y-JGa">
                                 <variation key="heightClass=compact-widthClass=compact" constant="78"/>
                             </constraint>
@@ -705,6 +670,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="rge-jl-yKb"/>
                                 <exclude reference="bp5-4n-QMS"/>
                                 <exclude reference="ajg-db-Lu7"/>
                                 <exclude reference="tAl-7y-JGa"/>
@@ -721,6 +687,12 @@
                                 <include reference="tAl-7y-JGa"/>
                                 <exclude reference="z8q-RT-q1w"/>
                                 <include reference="lm3-fo-EfY"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="feA-8y-5xt"/>
+                                <include reference="rge-jl-yKb"/>
                             </mask>
                         </variation>
                     </view>

@@ -123,6 +123,9 @@ class GameController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Flag", forIndexPath: indexPath)
         
+        cell.layer.borderWidth = 2.0
+        cell.layer.borderColor = UIColor.whiteColor().CGColor
+        
         let flag = UIImage(named: currentGame[indexPath.item])
         
         solution["flagImage"] = flag
@@ -135,7 +138,12 @@ class GameController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = collectionView.cellForItemAtIndexPath(indexPath)
+        
         if indexPath.item == solution["countryIndex"] as! Int {
+            cell!.layer.borderWidth = 2.0
+            cell!.layer.borderColor = UIColor.greenColor().CGColor
+            
             let abbreviation = solution["countryAbb"] as! String
             if Ratios.seen[abbreviation] != nil {
                 Ratios.seen[abbreviation]! += 1
@@ -157,6 +165,9 @@ class GameController: UICollectionViewController {
             ac.addAction(UIAlertAction(title: "Next Round", style: .Default, handler: newRound))
             presentViewController(ac, animated: true, completion: nil)
         } else {
+            cell!.layer.borderWidth = 2.0
+            cell!.layer.borderColor = UIColor.redColor().CGColor
+            
             let abbreviation = solution["countryAbb"] as! String
             if Ratios.seen[abbreviation] != nil {
                 Ratios.seen[abbreviation]! += 1

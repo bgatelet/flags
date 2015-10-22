@@ -49,6 +49,7 @@ class NameGameController: UIViewController {
         for button in gameButtons {
             button.hidden = true
             button.enabled = false
+            button.setTitleColor(UIColor.blueColor(), forState: .Normal)
         }
         
         for i in 0 ..< Level.difficulty.rawValue {
@@ -125,9 +126,17 @@ class NameGameController: UIViewController {
     }
     
     func checkAnswer(sender: UIButton) {
+//        for button in gameButtons {
+//            button.hidden = true
+//        }
+//        
+//        sender.hidden = false
+        
         if sender.titleLabel!.text == solution["name"] as? String {
+            sender.setTitleColor(UIColor.greenColor(), forState: .Normal)
             correctGuess()
         } else {
+            sender.setTitleColor(UIColor.redColor(), forState: .Normal)
             wrongGuess()
         }
     }

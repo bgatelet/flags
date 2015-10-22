@@ -11,7 +11,7 @@ import UIKit
 class StatsTableController: UITableViewController {
 
     var items = [[String]]()
-    var headers = ["Countries", "US States"]
+    var headers = ["(Seen \(Ratios.totalFlagsSeen)%)", "Countries", "US States"]
     var unlocked = true
     
     // For the segue
@@ -20,9 +20,9 @@ class StatsTableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Ratios.updateTotal()
-        self.title = "Seen \(Ratios.totalFlagsSeen)%"
+        self.title = "Stats"
         
+        items.append([])
         items.append(Countries.orderedKeys)
         items.append(Countries.usKeys)
     }
