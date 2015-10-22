@@ -9,6 +9,17 @@
 import GameKit
 import UIKit
 
+// Code so the border color can be set in Interface Builder. layou.borderColor expects a CGColorRef while IB only creates UIColor
+extension CALayer {
+    func borderUIColor() -> UIColor? {
+        return borderColor != nil ? UIColor(CGColor: borderColor!) : nil
+    }
+    
+    func setBorderUIColor(color: UIColor) {
+        borderColor = color.CGColor
+    }
+}
+
 class GameController: UICollectionViewController {
     
     var gameType = [String]()
@@ -112,8 +123,7 @@ class GameController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Flag", forIndexPath: indexPath)
         
-        let path = NSBundle.mainBundle().pathForResource(currentGame[indexPath.item], ofType: "png")!
-        let flag = UIImage(contentsOfFile: path)
+        let flag = UIImage(named: currentGame[indexPath.item])
         
         solution["flagImage"] = flag
         

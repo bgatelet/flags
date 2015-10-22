@@ -38,7 +38,7 @@ class StatsTableController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! CustomCell
         
         // find the image for this cell, and load its thumbnail
         let currentImage = items[indexPath.section][indexPath.row]
@@ -46,17 +46,16 @@ class StatsTableController: UITableViewController {
         if Ratios.seen[currentImage] != nil {
             let imageRootName = currentImage.stringByReplacingOccurrencesOfString(".png", withString: "")
             
-            let path = NSBundle.mainBundle().pathForResource(imageRootName, ofType: "png")!
-            cell.imageView!.image = UIImage(contentsOfFile: path)
+            cell.flagImage.image = UIImage(named: imageRootName)
             
             if imageRootName.containsString("US-") {
-                cell.textLabel!.text = Countries.usStates[imageRootName]
+                cell.flagLabel.text = Countries.usStates[imageRootName]
             } else {
-                cell.textLabel!.text = Countries.allRows[imageRootName]!["name"]
+                cell.flagLabel.text = Countries.allRows[imageRootName]!["name"]
             }
         } else {
-            cell.imageView!.image = nil
-            cell.textLabel!.text = "???"
+            cell.flagImage.image = nil
+            cell.flagLabel.text = "???"
             unlocked = false
         }
         
@@ -76,8 +75,7 @@ class StatsTableController: UITableViewController {
                 if Ratios.seen[currentImage] != nil {
                     imageName = currentImage.stringByReplacingOccurrencesOfString(".png", withString: "")
                     
-                    let path = NSBundle.mainBundle().pathForResource(imageName, ofType: "png")!
-                    let flag = UIImage(contentsOfFile: path)
+                    let flag = UIImage(named: imageName)
                     
                     let countryViewController = segue.destinationViewController as! CountryViewController
                     countryViewController.name = imageName

@@ -14,28 +14,7 @@ class NameGameController: UIViewController {
     @IBOutlet weak var flagImage: UIImageView!
     @IBOutlet var gameButtons: [UIButton]!
     
-    @IBAction func button0(sender: UIButton) {
-        checkAnswer(sender)
-    }
-    @IBAction func button1(sender: UIButton) {
-        checkAnswer(sender)
-    }
-    @IBAction func button2(sender: UIButton) {
-        checkAnswer(sender)
-    }
-    @IBAction func button3(sender: UIButton) {
-        checkAnswer(sender)
-    }
-    @IBAction func button4(sender: UIButton) {
-        checkAnswer(sender)
-    }
-    @IBAction func button5(sender: UIButton) {
-        checkAnswer(sender)
-    }
-    @IBAction func button6(sender: UIButton) {
-        checkAnswer(sender)
-    }
-    @IBAction func button7(sender: UIButton) {
+    @IBAction func button(sender: UIButton) {
         checkAnswer(sender)
     }
     
@@ -138,8 +117,7 @@ class NameGameController: UIViewController {
             }
         }
         
-        let path = NSBundle.mainBundle().pathForResource(currentGame[solutionFlag], ofType: "png")!
-        let flag = UIImage(contentsOfFile: path)
+        let flag = UIImage(named: currentGame[solutionFlag])
         flagImage.image = flag
         solution["flagImage"] = flag
         

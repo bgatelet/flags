@@ -89,6 +89,11 @@ class PlayMenu: UIViewController {
         ac.addAction(usa)
         ac.addAction(cancel)
         
+        if let popoverController = ac.popoverPresentationController {
+            popoverController.sourceView = sender
+            popoverController.sourceRect = sender.bounds
+        }
+        
         self.presentViewController(ac, animated: true, completion: nil)
     }
     
@@ -129,6 +134,11 @@ class PlayMenu: UIViewController {
         if ratioCheck <= 50 { ac.addAction(fifty) }
         if ratioCheck <= 75 { ac.addAction(seventyFive) }
         ac.addAction(cancel)
+        
+        if let popoverController = ac.popoverPresentationController {
+            popoverController.sourceView = sender
+            popoverController.sourceRect = sender.bounds
+        }
         
         self.presentViewController(ac, animated: true, completion: nil)
     }
