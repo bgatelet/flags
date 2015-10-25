@@ -6,17 +6,33 @@
 //  Copyright © 2015 Brice Gatelet. All rights reserved.
 //
 
+import iAd
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate, ADBannerViewDelegate {
+    
     var window: UIWindow?
-
-
+    var bannerView: ADBannerView!
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Placed here so that the ads persist in every view so that they stay up longer.
+        bannerView = ADBannerView(adType: .Banner)
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        bannerView.delegate = self
+        bannerView.hidden = true
+        
         return true
+    }
+    
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        bannerView.hidden = false
+    }
+    
+    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+        bannerView.hidden = true
     }
 
     func applicationWillResignActive(application: UIApplication) {

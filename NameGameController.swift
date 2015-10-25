@@ -36,6 +36,9 @@ class NameGameController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // To resize the view when an ad appears.
+        self.canDisplayBannerAds = true
+        
         self.title = "Guess the Flag"
         
         keysCopy = gameType
@@ -43,6 +46,23 @@ class NameGameController: UIViewController {
         
         newRound()
         setButtons()
+    }
+    
+    // For iAd
+    override func viewWillAppear(animated: Bool) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        view.addSubview(appDelegate.bannerView)
+        
+        let viewsDictionary = ["bannerView": appDelegate.bannerView]
+        
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[bannerView]|", options: [], metrics: nil, views: viewsDictionary))
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[bannerView]|", options: [], metrics: nil, views: viewsDictionary))
+    }
+    
+    // For iAd
+    override func viewWillDisappear(animated: Bool) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.bannerView.removeFromSuperview()
     }
     
     func setButtons() {
@@ -126,12 +146,6 @@ class NameGameController: UIViewController {
     }
     
     func checkAnswer(sender: UIButton) {
-//        for button in gameButtons {
-//            button.hidden = true
-//        }
-//        
-//        sender.hidden = false
-        
         if sender.titleLabel!.text == solution["name"] as? String {
             sender.setTitleColor(UIColor.greenColor(), forState: .Normal)
             correctGuess()

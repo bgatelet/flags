@@ -39,10 +39,30 @@ class GameController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // To resize the view when an ad appears.
+        self.canDisplayBannerAds = true
+        
         count = gameType.count
         keysCopy = gameType
         
         newRound(nil)
+    }
+    
+    // For iAd
+    override func viewWillAppear(animated: Bool) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        view.addSubview(appDelegate.bannerView)
+        
+        let viewsDictionary = ["bannerView": appDelegate.bannerView]
+        
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[bannerView]|", options: [], metrics: nil, views: viewsDictionary))
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[bannerView]|", options: [], metrics: nil, views: viewsDictionary))
+    }
+    
+    // For iAd
+    override func viewWillDisappear(animated: Bool) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.bannerView.removeFromSuperview()
     }
     
     func newRound(action: UIAlertAction!) {

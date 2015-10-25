@@ -149,10 +149,14 @@ class PlayMenu: UIViewController {
         
         if Countries.unlocked == true {
             ratioFlagButton.enabled = true
+            ratioFlagButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
             ratioNameButton.enabled = true
+            ratioNameButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         } else {
             ratioFlagButton.enabled = false
+            ratioFlagButton.setTitleColor(UIColor.lightGrayColor(), forState: .Disabled)
             ratioNameButton.enabled = false
+            ratioNameButton.setTitleColor(UIColor.lightGrayColor(), forState: .Disabled)
         }
         
         if Ratios.underTwo.count > Level.difficulty.rawValue {
